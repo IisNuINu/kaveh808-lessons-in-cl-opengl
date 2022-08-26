@@ -35,6 +35,7 @@ the opengl screen in the macro (with-win)
 a typical set of commands for working with a draw-board consists of a sequence
 of commands.
 
+<pre>
 (run-db)
 (with-win
   (gl:color 1 1 1)
@@ -43,6 +44,7 @@ of commands.
     (gl:vertex 0.95 0.05 0)
     (gl:vertex 0.95 0.95 0)
     (gl:vertex 0.05 0.95 0)))
+</pre>
 
 Thus, we can execute arbitrary code in the draw-board window, which may
 contain opengl commands.
@@ -53,8 +55,10 @@ occurs through the structure of the classes scene, shape, renderer, point and ot
 Therefore, the lambda function set in the with-win macro is the same in all lessons.
 and the same:
 
+<pre>
 (with-win
   (draw *scene*))
+</pre>
 
 This is the second step to configure interaction with the draw-board window.
 It begins to be used from lesson 01, where the basic classes are defined, for.
@@ -62,14 +66,17 @@ works with graphics.
 
 In principle, they can be combined into one run function
 
+<pre>
 (define run ()
    (run-db)
    (with-win
        (draw *scene*)))
+</pre>
 
 but it's anyone who wants.
 
 Further, all interaction takes place using macros:
+<pre>
 (with-redraw
     (clear-shapes *scene*))
 (with-clear-and-redraw
@@ -77,15 +84,19 @@ Further, all interaction takes place using macros:
    (add-shape *scene* (make-circle-shape 0.75 32))
    (add-shape *scene* (make-circle-shape 0.5  16))
    (add-shape *scene* (make-circle-shape 0.25 8)))
+</pre>
 
 which won't work if you don't execute the two commands I mentioned above:
-(run-db)
+(<pre>
+run-db)
 (with-win
    (draw *scene*))
+</pre>
 
 do not forget about this, because in the lesson files these commands are in the comments
 and can be found anywhere.
 
+<pre>
 drawboard01.lisp is the first downloadable file for all lessons defined in it
                  the functions create a window in which all the
                  opengl commands
@@ -111,6 +122,7 @@ load-examples.lisp file for downloading examples from cl-opengl binding, it has
 repl-board.lisp    file where I worked out the possibilities of interacting with the window.
                    glut launched via repl and issuing commands to it from
                    lisp perl
+</pre>
 
 
 
@@ -148,6 +160,7 @@ D:/dll/, после чего библиотека cffi может её груз�
 типичный набор комманд для работы с draw-board состоит из последовательности
 комманд.
 
+<pre>
 (run-db)
 (with-win
   (gl:color 1 1 1)
@@ -156,6 +169,7 @@ D:/dll/, после чего библиотека cffi может её груз�
     (gl:vertex 0.95 0.05 0)
     (gl:vertex 0.95 0.95 0)
     (gl:vertex 0.05 0.95 0)))
+</pre>
 
 Таким образом мы можем выполнять в окне draw-board произвольный код, который может
 содержать команды opengl.
@@ -165,21 +179,26 @@ opengl, а работе с классами common lisp. Поэтому все �
 происходит через структуру классов scene, shapе, renderer, point и других.
 Поэтому лямбда функция устанавливаемая в макросе with-win, во всех уроках одна 
 и таже:
+<pre>
 (with-win
   (draw *scene*))
+</pre>
   
 Это и есть второй шаг, для настройки взаимодействия с окном draw-board.
 Она начинает использоваться с урока 01, где и определяются базовые классы, для 
 работы с графикой.
 
 В принципе их можно объединить в одну фукнцию run
+<pre>
 (define run ()
    (run-db)
    (with-win
        (draw *scene*)))
+</pre>
 но это кто как хочет.
 
 Далее все взаимодействие происходит с помощью макросов:
+<pre>
 (with-redraw
     (clear-shapes *scene*))
 (with-clear-and-redraw
@@ -187,15 +206,19 @@ opengl, а работе с классами common lisp. Поэтому все �
    (add-shape *scene* (make-circle-shape 0.75 32))
    (add-shape *scene* (make-circle-shape 0.5  16))
    (add-shape *scene* (make-circle-shape 0.25 8)))
+</pre>
 
 которые не будут работать если вы не выполните две указанные выше мной комманды:
+<pre>
 (run-db)
 (with-win
    (draw *scene*))
+</pre>
 
 не забывайте об этом, потому что в файлах уроков эти комманды стоят в комментариях
 и могут находитсья где угодно.
 
+<pre>
 draw-board01.lisp      первый загружаемый файл для всех уроков, определяемые в нем
                        функции создают окно, в котором происходит отрисовка всех
                        команд opengl
@@ -221,5 +244,6 @@ load-examples.lisp     файл загрузки примеров из бинд�
 repl-board.lisp        файл где я отрабатывал возможности взаимодействия с окном 
                        glut запущеным через repl и выдаечей в него команд из 
                        lisp repl
+</pre>
 
 
