@@ -87,8 +87,8 @@ Further, all interaction takes place using macros:
 </pre>
 
 which won't work if you don't execute the two commands I mentioned above:
-(<pre>
-run-db)
+<pre>
+(run-db)
 (with-win
    (draw *scene*))
 </pre>
